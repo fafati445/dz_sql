@@ -24,8 +24,8 @@ id_albums INTEGER references albums(albumsID));
 create table if not exists track_list(
 trackID SERIAL primary key,
 name VARCHAR(60) NOT null,
-duration VARCHAR(60) NOT null,
-albumsID INTEGER references albums(albumsID))
+duration time NOT null,
+albumsID INTEGER references albums(albumsID));
 
 create table if not exists collection(
 collectionID SERIAL primary key,
@@ -36,13 +36,4 @@ create table if not exists collection_of_tracks (
 id SERIAL primary key,
 id_track INTEGER references track_list(trackID),
 id_collection INTEGER references collection(collectionID)
-);       
-
-
-
-
-
-
-
-
-
+);
